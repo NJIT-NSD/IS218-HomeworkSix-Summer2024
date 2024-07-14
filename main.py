@@ -1,6 +1,7 @@
 import sys
 from decimal import Decimal, InvalidOperation
 from calculator import calculator_section 
+from app import App
 
 class OperationCommand:
     def __init__(self, calculator, operation_name, a, b):
@@ -41,4 +42,5 @@ def main():
     calculate_and_print(a, b, operation_name)
 
 if __name__ == '__main__':
+    app = App().start()
     main()
