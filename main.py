@@ -19,6 +19,7 @@ class OperationCommand:
             raise ValueError(f"Unknown operation: {self.operation_name}")
 
 def calculate_and_print(a, b, operation_name):
+    print(a, b)
     try:
         a_decimal, b_decimal = map(Decimal, [a, b])
         command = OperationCommand(calculator_section, operation_name, a_decimal, b_decimal)
@@ -42,5 +43,8 @@ def main():
     calculate_and_print(a, b, operation_name)
 
 if __name__ == '__main__':
+    '''handler = CommandHandler()
+    handler.register_command("add", AddCommand(handler.receiver))
+    handler.handle_user_input()'''
     app = App().start()
     main()
