@@ -13,22 +13,27 @@ class CommandHandler:
     def register_command(self, command_name: str, command: Command):
         self.commands[command_name] = command
 
-    def execute_command(self, command_name: str):
+    def execute_command(self, input_string: str):
+        parsed_command = command_parser(input_string)
+        command_name = parsed_command['command']
+        args = parsed_command.get('args', [])
+
         try:
-            command_parser(command_name)
-            self.commands[command_name].execute()
+            self.commands[command_name].execute(*args)
         except KeyError:
             print(f"No such command: {command_name}")
+        except TypeError as e:
+            print(f"Error: {e}")
+        except Exception as e:
+            print(f"An error occurred: {e}")
     
 def command_parser(input_string: str):
     args_array = input_string.split()
-    print(args_array)
     if len(args_array) == 1:
-        return args_array[0]
+        return {"command": args_array[0], "args": []}
     return {
         "command": args_array[0],
-        "variable_one": args_array[1],
-        "variable_two": args_array[2]
+        "args": args_array[1:]
     }
     
     '''def handle_user_input(self):

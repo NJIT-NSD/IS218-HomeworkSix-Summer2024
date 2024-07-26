@@ -23,13 +23,5 @@ class App:
 
         print("Type 'exit' to exit.")
         while True:  #REPL Read, Evaluate, Print, Loop
-            # parsed_string = self.command_parser(input(">>> ").strip())
-            self.command_handler.execute_command(input(">>> ").strip())
-
-    def command_parser(self, input_string: str):
-        args_array = input_string.split()
-        dict = {
-            "command": args_array[0],
-            "variable_one": args_array[1],
-            "variable_two": args_array[2]
-        }
+            user_input = input(">>> ").strip()
+            self.command_handler.execute_command(user_input)
