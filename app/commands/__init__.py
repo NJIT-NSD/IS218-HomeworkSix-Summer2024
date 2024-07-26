@@ -36,18 +36,4 @@ def command_parser(input_string: str):
         "args": args_array[1:]
     }
     
-    '''def handle_user_input(self):
-        while True:
-            user_input = input("Enter command (add/subtract): ")
-            if user_input.lower() == "exit":
-                break
-            
-            parts = user_input.split()
-            if len(parts) < 3:
-                print("Invalid command format. Example: add 5 3")
-                continue
-            
-            command_name = parts[0].lower()
-            operands = [float(parts[1]), float(parts[2])]
-
-            self.execute_command(command_name, operands)'''
+    
