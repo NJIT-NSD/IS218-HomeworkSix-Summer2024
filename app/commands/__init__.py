@@ -24,6 +24,8 @@ class CommandHandler:
             print(f"No such command: {command_name}")
         except TypeError as e:
             print(f"Error: {e}")
+        except SystemExit:
+            raise  # Ensure SystemExit is not caught here
         except Exception as e:
             print(f"An error occurred: {e}")
     

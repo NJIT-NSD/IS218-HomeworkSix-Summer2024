@@ -29,10 +29,13 @@ class App:
         self.logger.info("App started.")
         self.load_plugins()
         print("Type 'exit' to exit.")
-        while True:  # REPL Read, Evaluate, Print, Loop
+        while True:
             try:
                 user_input = input(">>> ").strip()
                 self.logger.info(f"User input: {user_input}")
+                if user_input == 'exit':
+                    print("Exiting...")
+                    raise SystemExit
                 self.command_handler.execute_command(user_input)
             except SystemExit:
                 break
