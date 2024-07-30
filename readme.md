@@ -1,2 +1,1 @@
-# calc project
-# Hello World
+# Added logging function
